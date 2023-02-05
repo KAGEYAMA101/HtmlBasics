@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <style>
+        #div1,#div2 {
+                        float: left;
+                        width: 200px;
+                        height: 100px;
+                        margin: 10px;
+                        cursor: pointer;
+                        padding: 10px;
+                        border: 1px solid black;
+                    }
+    </style>
+    <script>
+        function allowDrop(event) {
+            event.preventDefault();
+            }
+
+        function drag(event) {
+            event.dataTransfer.setData("text", event.target.id);
+            }
+
+        function drop(event) {
+            event.preventDefault();
+            var data = event.dataTransfer.getData("text"); 
+            event.target.appendChild(document.getElementById(data));
+            }
+    </script>
+</head>
+<body>
+    <h2>HTML Drag and Drop API</h2>
+    <p>
+        <h3>Drag the SCET logo back and forth between the two blocks</h3> 
+    </p>
+
+    <div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"> 
+        <img src="javascript.png" draggable="true" ondragstart="drag(event)" id="drag1" width="200" height="100"> 
+    </div>
+
+    <div id="div2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+
+</body>
+</html>

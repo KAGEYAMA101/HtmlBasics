@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Frames in HTML</title>
+    <frameset rows="120,*">
+        <frame src="navigation.html" name="navigation_frame" />
+        <frameset cols="25%,50%,25%">
+            <frame src="left.html" name="left_pane" />
+            <frame src="main.html" name="center_pane" />
+            <frame src="right.html" name="right_pane" />
+        </frameset>
+        <noframes>
+        <body>
+            <h2>Your current browser does not support frames or HTML 4.</h2>
+        </body>
+        </noframes>
+    </frameset>
+</head>
+</html>

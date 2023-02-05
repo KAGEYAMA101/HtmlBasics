@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Geolocation API</title>
+    <style>
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 18px;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <p><h2>Click the button to get your geographical location</h2> </p>
+    <button onclick="getLocation()"> Get Location </button>
+    <p id="locationArea"></p>
+
+    <script>
+        var area = document.getElementById("locationArea"); 
+        
+        function getLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPosition);
+            } 
+            else {
+                area.innerHTML = "Geolocation is not supported by this browser.";
+            }
+        }
+
+        function showPosition(position) {
+            area.innerHTML = "Latitude: " + position.coords.latitude +"<br>Longitude: " + position.coords.longitude;
+        }
+
+    </script>
+
+</body>
+</html>
